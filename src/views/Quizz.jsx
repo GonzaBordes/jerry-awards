@@ -2,7 +2,7 @@
 const Quizz = () => {
   
   return (
-    <h1>Quizz</h1>
+    <h1>Quizzzzzzzzzzzzz</h1>
   )
 }
 

@@ -2,6 +2,6 @@
 
 export const Context = () => {
   return (
-    <div>Context</div>
+    <div>Context prueba</div>
   )
 }

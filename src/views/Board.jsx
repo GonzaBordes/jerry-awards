@@ -4,7 +4,7 @@ const Board = () => {
 
 
   return (
-    <div>Board</div>
+    <div>Board prueba</div>
   )
 }
 

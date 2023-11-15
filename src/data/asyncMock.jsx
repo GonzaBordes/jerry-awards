@@ -1,40 +1,31 @@
-
-
 const usuarios = [
     {
         id: 1,
-        nombre: 'Juan',
-        email: 'juan@gmail.com',
-        edad: 25,
-        empresa: 'Globant'
+        name: 'Juan',
+        last_3_dni: 312,
+        table: 3,
+        points: 34
     },
-    {   
+    {
         id: 2,
-        nombre: 'Pedro',
-        email: 'pedro@gmail.com',
-        edad: 30,
-        empresa: 'Microsoft'
+        name: 'Marcos',
+        last_3_dni: 872,
+        table: 2,
+        points: 38
     },
     {
         id: 3,
-        nombre: 'Luisa',
-        email: 'luisa@gmail.com',
-        edad: 45,
-        empresa: 'Apple'
+        name: 'Matias',
+        last_3_dni: 900,
+        table: 1,
+        points: 42
     },
     {
         id: 4,
-        nombre: 'Maria',
-        email: 'maria@gmail.com',
-        edad: 18,
-        empresa: 'Google'
-    },
-    {
-        id: 5,
-        nombre: 'Ana',
-        email: 'ana@gmail.com',
-        edad: 67,
-        empresa: 'Facebook'
+        name: 'Florencia',
+        last_3_dni: '021',
+        table: 4,
+        points: 24
     }
 ];
 

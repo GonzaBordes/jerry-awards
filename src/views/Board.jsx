@@ -1,46 +1,25 @@
-import Table from '../components/Table/Table'
+// Board.jsx
+import React, { useEffect, useState } from 'react';
+import { getUsuarios } from '../data/asyncMock';
+import ItemList from '../components/ItemList/ItemList';
+import './Board.css'
 
 const Board = () => {
+  const [data, setData] = useState([]);
 
-  const usuarios = [
-      {
-          nombre: 'Juan',
-          email: 'juan@gmail.com',
-          edad: 25,
-          empresa: 'Globant'
-      },
-      {
-          nombre: 'Pedro',
-          email: 'pedro@gmail.com',
-          edad: 30,
-          empresa: 'Microsoft'
-      },
-      {
-          nombre: 'Luisa',
-          email: 'luisa@gmail.com',
-          edad: 45,
-          empresa: 'Apple'
-      },
-      {
-          nombre: 'Maria',
-          email: 'maria@gmail.com',
-          edad: 18,
-          empresa: 'Google'
-      },
-      {
-          nombre: 'Ana',
-          email: 'ana@gmail.com',
-          edad: 67,
-          empresa: 'Facebook'
-      }
-  ];
+  useEffect(() => {
+    getUsuarios().then((users) => {
+      setData(users);
+    });
+  }, []);
 
-    return (
+  return (
+    <div className='bg-black text-yellow board'>
       <div>
-        <h1>Lista de usuarios</h1>
-        <Table data={usuarios} />
+        <ItemList data={data} />
       </div>
-    )
-}
+    </div>
+  );
+};
 
 export default Board

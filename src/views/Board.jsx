@@ -20,8 +20,7 @@ const Board = () => {
   return (
     <div className='bg-black text-yellow board'>
       <div className='p-[4em]'>
-        <img src={titleJerrys} alt="" className='titleJerrys flex mx-auto text-center'/>
-        <h2 className='py-[30px] black fontSize-[40px]'>DASHBOARD JERRY´S</h2>
+        <h2 className='py-[30px] black fontSize-[40px] text-center'>DASHBOARD JERRY´S23</h2>
         <ItemList data={data} />
       </div>
       <div className='img-board'>

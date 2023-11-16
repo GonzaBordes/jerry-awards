@@ -26,6 +26,13 @@ const usuarios = [
         last_3_dni: '021',
         table: 4,
         points: 24
+    },
+    {
+        id: 5,
+        name: 'Gonzalo',
+        last_3_dni: '012',
+        table: 8,
+        points: 28
     }
 ];
 

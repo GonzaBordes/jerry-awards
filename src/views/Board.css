@@ -1,14 +1,19 @@
 .bg-black.text-yellow.board {
-    height: 100vh !important;
+    min-height: 100vh !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-size: cover;
 }
 
 .board{
     background: url('../assets/img/bg-pattern.svg');
     background-repeat: repeat;
     background-position: center center;
+}
+
+.board div h2{
+    font-size: 30px;
 }
 
 .img-board{

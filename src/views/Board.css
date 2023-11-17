@@ -19,17 +19,17 @@
 .img-board{
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
 }
 
 img.imgGlobos {
-    width: 300px;
+    width: 250px;
     height: 300px;
 }
 
 img.imgWarner {
-    width: 250px;
-    height: 80px;
+    width: 180px;
+    height: 60px;
     margin-right: 4em;
     margin-bottom: 2em;
 }

@@ -1,5 +1,6 @@
 import Item from '../Item/Item'
 import '../ItemList/ItemsList.css'
+import {motion} from 'framer-motion'
 
 function ItemList({ data }) {
 
@@ -13,11 +14,15 @@ function ItemList({ data }) {
         <span className="bold">Mesa</span>
         <span className="bold">Puntaje</span>
       </div>
-      {usuariosOrdenados.map((usuario) => (
-        <div key={usuario.id}>
-          <Item usuario={usuario} />
-        </div>
-      ))}
+      <div>
+        {usuariosOrdenados.map((usuario) => (
+          <div key={usuario.id}>
+            <Item usuario={usuario} />
+          </div>
+        ))}
+      </div>
+      
+      
     </div>
   );
 }

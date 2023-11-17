@@ -1,0 +1,11 @@
+main{
+    background-image: url(../assets/img/bg-pattern.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+section{
+    max-width: 480px;
+    margin: auto;
+}

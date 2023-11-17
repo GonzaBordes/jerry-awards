@@ -8,9 +8,10 @@ function ItemList({ data }) {
 
   return (
     <div>
-      <div className='grid grid-cols-4 gap-4 px-[3em] bg-yellow text-black headerTable'>
+      <div className='grid grid-cols-5 gap-4 px-[3em] bg-yellow text-black headerTable'>
         <span className="bold">Nombre</span>
         <span className="bold">DNI</span>
+        <span className="bold">Empresa</span>
         <span className="bold">Mesa</span>
         <span className="bold">Puntaje</span>
       </div>

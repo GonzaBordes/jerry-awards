@@ -13,13 +13,22 @@
 }
 
 .board div h2{
-    font-size: 30px;
+    font-size: 80px;
 }
 
 .img-board{
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
 }
 
+img.globosSuperiores{
+    width: 250px;
+    height: 300px;
+    margin-left: auto;
+    transform: rotateX(180deg) rotateY(180deg);
+    margin-bottom: -15%;
+    position: relative;
+    margin-top: -3%;
+}
 

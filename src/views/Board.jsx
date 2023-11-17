@@ -20,6 +20,7 @@ const Board = () => {
 
   return (
     <div className='bg-black text-yellow board'>
+      <img src={ImgGlobos} alt="" className='globosSuperiores'/>
       <div className='p-[4em]'>
         <TitleDashboard />
         <ItemList data={data} />

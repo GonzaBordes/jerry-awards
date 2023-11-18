@@ -1,13 +1,11 @@
 import "./Quizz.css"
-import globos from '../assets/img/globos.png'
-import globosCompletos from '../assets/img/globos-completos.png'
-import warnerLogo from '../assets/img/warner-logo.png'
 import preguntas from '../data/QuizzQuestions'
 import {motion, AnimatePresence} from 'framer-motion'
 import { useEffect, useState, useRef } from "react"
 import QuizView from "./QuizView"
 import Questions from "../components/Questions"
 import Header from "../components/Header"
+import MainContentWrapper from "../components/MainContentWrapper"
 
 const Quizz = () => {
 
@@ -67,10 +65,7 @@ const Quizz = () => {
   };
 
   return (
-    <>
-      <main className="bg-black pt-[1rem] pb-[9rem] relative  min-h-[100dvh] overflow-hidden">
-        <img src={globosCompletos} className="w-[20rem] absolute right-[-7rem] top-[-12rem]" alt="" />
-          <Header />
+    <MainContentWrapper>
           <AnimatePresence mode="wait">
             {!loggedUser ? (
               // Si el usuario está autenticado, renderiza el formulario
@@ -119,16 +114,8 @@ const Quizz = () => {
               <QuizView />
               
             )}
-          </AnimatePresence>          
-          <footer className="w-full absolute bottom-0 flex justify-between items-center">
-            <img src={globos} className="w-[8rem]" alt="" />
-            <img src={warnerLogo} alt="" className="h-[3rem] pr-3"/>
-          </footer>
-          
-        </main>
-        
-
-    </>
+          </AnimatePresence>                 
+    </MainContentWrapper>
   )
 }
 

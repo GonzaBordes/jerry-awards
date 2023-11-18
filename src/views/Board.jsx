@@ -4,8 +4,8 @@ import { getUsuarios } from '../data/asyncMock';
 import ItemList from '../components/ItemList/ItemList';
 import imgGlobos from '../assets/img/globos.png';
 import imgLogoWarner from '../assets/img/warner-logo.png';
-import titleJerrys from '../assets/img/titulo-jerry.png'
 import './Board.css'
+import TitleDashboard from '../components/TitleDashboard';
 
 
 const Board = () => {
@@ -17,11 +17,27 @@ const Board = () => {
     });
   }, []);
 
+  /*useEffect(() => {
+    const fetchData = async () => {
+      try{
+        const response = await fetch('https://us-central1-kickads-airbyte.cloudfunctions.net/all')
+        if(!response.ok) {
+          throw new Error('Error al traer los usuarios')
+        }
+        const users = await response.json()
+        setData(users)
+      } catch (error) {
+        console.error('Error', error)
+      }
+    }
+
+    fetchData()
+  }, [])*/
+
   return (
     <div className='bg-black text-yellow board'>
       <div className='p-[4em]'>
-        <img src={titleJerrys} alt="" className='titleJerrys flex mx-auto text-center'/>
-        <h2 className='py-[30px] black fontSize-[40px]'>DASHBOARD JERRY´S</h2>
+        <TitleDashboard />
         <ItemList data={data} />
       </div>
       <div className='img-board'>

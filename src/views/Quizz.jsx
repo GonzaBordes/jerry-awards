@@ -11,8 +11,9 @@ import Header from "../components/Header"
 const Quizz = () => {
 
   const [loggedUser, setLoggedUser] = useState(false)
+  const [user_id, setUserId] = useState(null)
   let userId = ''
-  let userData = {
+  const userData = {
     nombre: '',
     dni: '',
     mesa: '',
@@ -20,17 +21,46 @@ const Quizz = () => {
     id: ''
   }
 
-
-
   const handleRegister = (e) => {
-    e.preventDefault()
-    userData.mesa = document.getElementById('mesa').value
-    userData.nombre = document.getElementById('nombre-apellido').value
-    userData.email = document.getElementById('email').value
-    userData.dni = document.getElementById('dni').value
-    userData.id = '#!dDF123SD'
-    setLoggedUser(true)
-  }
+    e.preventDefault();
+  
+    // Obtener los valores del formulario
+    const nombre = document.getElementById('nombre-apellido').value;
+    const email = document.getElementById('email').value;
+    const dni = document.getElementById('dni').value;
+    const mesa = document.getElementById('table').value;
+  
+    // Crear el objeto de datos a enviar
+    const userData = {
+      nombre,
+      email,
+      dni,
+      mesa,
+    };
+
+    console.log(userData)
+  
+    // Realizar la solicitud POST a la API
+    /*fetch('https://us-central1-kickads-airbyte.cloudfunctions.net/create_user', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        data: userData,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Usuario creado')
+        console.log(data)
+        setLoggedUser(true);
+      })
+      .catch((err) => {
+        console.error('Error de red:', err);
+      });*/
+  };
 
   return (
     <>
@@ -50,7 +80,7 @@ const Quizz = () => {
                     <input type="text" name="nombre-apellido" id="nombre-apellido" className="w-full py-[.5rem] px-2 mt-3 rounded-lg border-yellow border-2 bg-white" />
                   </div>
                   <div className="input-box">
-                    <label htmlFor="nombre-apellido" className="text-yellow block text-center uppercase font-light text-[.9rem] ">Email</label>
+                    <label htmlFor="email" className="text-yellow block text-center uppercase font-light text-[.9rem] ">Email</label>
                     <input type="email" name="email" id="email" className="text-[.9rem] w-full py-[.5rem] px-2 mt-3 rounded-lg border-yellow border-2 bg-white" />   
                   </div>
                   <div className="flex gap-6">
@@ -59,7 +89,7 @@ const Quizz = () => {
                       <input type="text" name="dni" id="dni" className="text-[.9rem] w-full py-[.5rem] px-2 mt-3 rounded-lg border-yellow border-2 bg-white" />   
                     </div>
                     <div className="input-box">
-                      <label htmlFor="nombre-apellido" className="text-yellow block text-center uppercase font-light text-[.9rem]">Mesa</label>
+                      <label htmlFor="table" className="text-yellow block text-center uppercase font-light text-[.9rem]">Mesa</label>
                       <input type="number" id="table" name="table" className="text-[.9rem] w-full py-[.5rem] px-2 mt-3 rounded-lg border-yellow border-2 bg-white" />   
                     </div>                
                   </div>

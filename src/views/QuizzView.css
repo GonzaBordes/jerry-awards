@@ -1,0 +1,19 @@
+.option-button {
+    background-color: #232323;
+    border: 1px solid #fbe94e;
+    border-radius: 8px;
+    color: #fbe94e;
+    padding: 10px 30px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .option-button:hover {
+    background-color: #fbe94e;
+    color: #232323;
+  }
+  
+  /*.option-button.selected {
+    background-color: #fbe94e;
+  }*/

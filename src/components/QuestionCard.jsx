@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import QuestionBackground from '../assets/img/pregunta-bg.png'
 
 const QuestionCard = ({ question, handleAnswer }) => {
 
@@ -10,13 +11,15 @@ const QuestionCard = ({ question, handleAnswer }) => {
     }
 
   return (
-    <div>
-        <h2>{question.pregunta}</h2>
-        <div>
+    <div className="question-card">
+        <div className="bg-white h-[100%] py-[5rem] px-4 text-center bg-[white]">
+            <h2 className="">{question.pregunta}</h2>
+        </div>        
+        <div className="grid gap-3 mt-5">
             {question.opciones.map((option, index) => (
                 <button 
                     key={index}
-                    className={`option-button ${
+                    className={`option-button border-2 border-yellow ${
                         selectedOption === option ? "selected" : ""
                     }`}
                     onClick={() => handleOptionClick(option)}

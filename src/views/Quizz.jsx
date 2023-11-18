@@ -77,7 +77,7 @@ const Quizz = () => {
               >
                 <div className="container">
                   <h3 className="text-yellow bold uppercase text-center mb-3">Respondé la trivia en el menor tiempo posible y ganá</h3>
-                  <span className="block text-yellow uppercase text-center mb-8 font-light">Primer premio smart tv philco led 43" full h</span>
+                  <span className="block text-yellow uppercase text-center mb-8 font-light">Primer premio smart tv philco led 43" full hd</span>
 
                   <div className="form-wrapper pt-8  border-t-[.5px] border-yellow">
                     <form className="grid gap-3">

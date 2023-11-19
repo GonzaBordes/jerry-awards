@@ -6,10 +6,12 @@ import {motion, AnimatePresence} from 'framer-motion'
 
 
 const QuizView = () => { 
-    const [step, setStep] = useState(0)
+
     const [correctAnswers, setCorrectAnswers] = useState(0)
-    const [timer, setTimer] = useState(150);
+    const [step, setStep] = useState(0)
+    const [timer, setTimer] = useState(15);
     const [totalTime, setTotalTime] = useState(0);
+
 
     const handleAnswer = (isCorrect) => {
         console.log(`Respuesta seleccionada: ${isCorrect ? "Correcta" : "Incorrecta"}`);
@@ -17,23 +19,39 @@ const QuizView = () => {
             setCorrectAnswers((prevCorrectAnswers) => prevCorrectAnswers + 1)
         }
         setStep((prevStep) => prevStep + 1)
+        setTimer(15)
     }
 
     useEffect(() => {
-        let interval;
-      
-        if (step < Questions.length && timer > 0) {
-            interval = setInterval(() => {
-                setTimer((prevTimer) => (prevTimer === 0 ? 0 : prevTimer - 1));
-                setTotalTime((prevTotalTime) => prevTotalTime + 1);
-            }, 1000);
+        // Configura el temporizador para cada pregunta
+        const temporizador = setInterval(() => {
+        if (timer > 0) {
+          setTimer(timer - 1);
+          setTotalTime(totalTime + 1); // Incrementa el tiempo total
+        } else {
+          // Cuando se llega a 0, pasa a la siguiente pregunta
+          setStep(step + 1);
+          setTimer(15); // Reinicia el temporizador para la siguiente pregunta
         }
+      }, 1000);
+      
+      if (step === Questions.length) {
+        clearInterval(temporizador);
+      }
 
-        return () => clearInterval(interval);
-      }, [timer]);
+        return () => clearInterval(temporizador);
+      }, [timer,step, totalTime]);
+
+      let displayeTimer = timer < 10 ? `0${timer}` : timer;
       
     return (
         <div className="px-5 mt-[3rem]">
+            {step !== Questions.length
+             ? 
+             (<p className="text-[white] text-[1.5rem] bold  text-right pb-3">00:{displayeTimer}</p>)
+             : 
+             null
+             }
             <AnimatePresence mode="wait">
                 {step < Questions.length ? (
                     <motion.div

@@ -9,16 +9,7 @@ import MainContentWrapper from "../components/MainContentWrapper"
 
 const Quizz = () => {
 
-  const [loggedUser, setLoggedUser] = useState(false)
-  const [user_id, setUserId] = useState(null)
-  let userId = ''
-  const userData = {
-    nombre: '',
-    dni: '',
-    mesa: '',
-    email: '',
-    id: ''
-  }
+  const [loggedUser, setLoggedUser] = useState(false)  
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -76,11 +67,7 @@ const Quizz = () => {
               >
                 <div className="container">
                   <h3 className="text-yellow bold uppercase text-center mb-3">Respondé la trivia en el menor tiempo posible y ganá</h3>
-<<<<<<< HEAD
                   <span className="block text-yellow uppercase text-center mb-6 font-light">Primer premio smart tv philco led 43" full h</span>
-=======
-                  <span className="block text-yellow uppercase text-center mb-8 font-light">Primer premio smart tv philco led 43" full hd</span>
->>>>>>> fdf56a8b82f66f9207d531897b975ad35e60a896
 
                   <div className="form-wrapper pt-6  border-t-[.5px] border-yellow">
                     <form className="grid gap-3">

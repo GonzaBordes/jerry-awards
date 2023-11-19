@@ -7,9 +7,9 @@ const MainContentWrapper = ({children}) => {
     return (
         <>
           <main className="bg-black pt-[1rem] pb-[9rem] relative  min-h-[100dvh] overflow-hidden">
-            <img src={globosCompletos} className="w-[20rem] absolute right-[-7rem] top-[-12rem]" alt="" />
+            <img src={globosCompletos} className=" pointer-events-none w-[20rem] absolute right-[-7rem] top-[-12rem]" alt="" />
               <Header />
-              {children}         
+                {children}         
               <footer className="w-full absolute bottom-0 flex justify-between items-center">
                 <img src={globos} className="w-[6rem]" alt="" />
                 <img src={warnerLogo} alt="" className="h-[3rem] pr-3"/>

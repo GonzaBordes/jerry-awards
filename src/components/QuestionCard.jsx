@@ -17,12 +17,12 @@ const QuestionCard = ({ question, handleAnswer, step }) => {
   return (
     <div className="question-card px-4 relative">
         <div className="relative">
-            <img src={pinkDetails} className="absolute top-[-2.3rem] rotate-90 left-[3.7rem] w-[1.5rem]" alt="" />
-            <div className="border border-black translate-x-[-3px] translate-y-[2px] absolute top-[-2rem] p-3 h-[4rem] w-[4rem] z-[90] rounded-full"></div>
-            <div className="bg-[#f8bad3] flex-col absolute z-50 top-[-2rem] p-3 rounded-full h-[4rem] w-[4rem] flex items-center justify-center step-counter">
-                <span className="bold text-lg mb-[3px] text-[16px]">{displayedStep}</span>
+            <img src={pinkDetails} className="absolute top-[-3.3rem] rotate-90 left-[3.7rem] w-[1.5rem]" alt="" />
+            <div className="border border-black translate-x-[-3px] translate-y-[-12px] absolute top-[-2rem] p-3 h-[4rem] w-[4rem] z-[90] rounded-full"></div>
+            <div className="bg-[#f8bad3] flex-col absolute z-50 top-[-3rem] p-3 rounded-full h-[4rem] w-[4rem] flex items-center justify-center step-counter">
+                <span className="bold text-[.9rem] mb-[3px] ">{displayedStep}</span>
                 <div className="w-[90%]  bg-black h-[1px]"></div>
-                <span className="bold text-lg mt-[3px] text-[16px]">10</span>
+                <span className="bold text-[.9rem] mt-[3px] ">10</span>
             </div>
         </div>        
         <div className="bg-white h-[100%] py-[4rem]  text-center relative">

@@ -36,11 +36,12 @@ const QuestionCard = ({ question, handleAnswer, step }) => {
                 <button 
                     key={index}
                     className={`option-button border-2 border-yellow ${
-                        selectedOption === option ? "selected" : ""
+                    selectedOption === option ? "selected" : ""
                     }`}
                     onClick={() => handleOptionClick(option)}
+                    style={{ display: "flex", justifyContent: "space-between" }}
                 >
-                    {option}
+                    <span className="bold border-[1px] rounded-[5px] px-2 border-yellow bg-black text-yellow">{String.fromCharCode(65 + index)}</span> <span className="text-center">{option}</span><span class></span>
                 </button>
             ))}
         </div>

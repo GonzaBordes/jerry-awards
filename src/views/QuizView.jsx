@@ -21,7 +21,7 @@ const QuizView = () => {
 
     useEffect(() => {
         let interval;
-    
+      
         if (step < Questions.length && timer > 0) {
             interval = setInterval(() => {
                 setTimer((prevTimer) => (prevTimer === 0 ? 0 : prevTimer - 1));

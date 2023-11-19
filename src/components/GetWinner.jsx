@@ -7,12 +7,19 @@ const GetWinner = () => {
     const [winner, setWinner] = useState(null)
     const [showSearching, setShowSearching] = useState(true);
 
+    const dataWinner = {
+        nombre: "Matías Morsa",
+        dni: "12432987",
+        table: 4,
+        points: 87
+    }
+
     useEffect(() => {
         const timer = setTimeout(() =>{
             setShowSearching(false)
 
             setTimeout(() => {
-                setWinner('Matías Morsa')
+                setWinner(dataWinner)
             }, 1000)
         }, 3500)
 
@@ -28,8 +35,9 @@ const GetWinner = () => {
                 throw new Error("Error al traer el ganador");
             }
 
-            const data = await response.json();
-            console.log(data)
+            const dataWinner = await response.json();
+            console.log(dataWinner)
+            setWinner(dataWinner)
         } 
         catch(error){
             console.error("Dio un error:", error.message)
@@ -62,8 +70,11 @@ const GetWinner = () => {
                 exit={{ opacity: 0 }}
               >
                 <div className="px-2 h-[70vh] flex flex-col items-center justify-center">
-                    <h4 className="text-yellow text-4xl bold uppercase text-center mb-8">¡Felicitaciones {winner}!</h4>
-                    <span className="block bg-yellow rounded-[8px] px-2 py-4 text-black uppercase text-center mb-8 medium">Ganaste un smart tv philco led 43" full hd</span>
+                    <h4 className="text-yellow text-4xl bold uppercase text-center mb-8">¡Felicitaciones {winner.nombre}!</h4>
+                    <p className="text-yellow text-xl medium text-center mb-3">DNI: {winner.dni}</p>
+                    <p className="text-yellow text-xl medium text-center mb-3">Mesa: {winner.table}</p>
+                    <p className="text-yellow text-xl medium text-center mb-3">Puntos: {winner.points}</p>
+                    <span className="block bg-yellow rounded-[8px] px-2 py-4 text-black uppercase text-center medium">Ganaste un smart tv philco led 43" full hd</span>
                 </div>
               </motion.div>
             )}

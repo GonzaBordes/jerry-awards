@@ -31,9 +31,9 @@ const QuizView = () => {
 
         return () => clearInterval(interval);
       }, [timer]);
-
+      
     return (
-        <div className="px-5 mt-4">
+        <div className="px-5 mt-[3rem]">
             <AnimatePresence mode="wait">
                 {step < Questions.length ? (
                     <motion.div
@@ -44,6 +44,7 @@ const QuizView = () => {
                         transition={{ duration: 0.5 }}
                     >
                         <QuestionCard
+                        step={step}
                         question={Questions[step]}
                         handleAnswer={handleAnswer}
                         />

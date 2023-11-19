@@ -9,3 +9,7 @@ section{
     max-width: 480px;
     margin: auto;
 }
+
+.step-counter span{
+    line-height: 1;
+}

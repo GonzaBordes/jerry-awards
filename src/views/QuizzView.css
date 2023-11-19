@@ -6,6 +6,7 @@
     padding: 10px 30px;
     margin: 5px;
     cursor: pointer;
+    transition: .3s ;
   }
   
   .option-button:hover {

@@ -11,7 +11,7 @@ const MainContentWrapper = ({children}) => {
               <Header />
               {children}         
               <footer className="w-full absolute bottom-0 flex justify-between items-center">
-                <img src={globos} className="w-[8rem]" alt="" />
+                <img src={globos} className="w-[6rem]" alt="" />
                 <img src={warnerLogo} alt="" className="h-[3rem] pr-3"/>
               </footer>
               

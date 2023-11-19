@@ -7,7 +7,6 @@ import imgLogoWarner from '../assets/img/warner-logo.png';
 import './Board.css'
 import TitleDashboard from '../components/TitleDashboard';
 
-
 const Board = () => {
   const [data, setData] = useState([]);
 
@@ -30,9 +29,9 @@ const Board = () => {
         console.error('Error', error)
       }
     }
-
     fetchData()
   }, [])*/
+
 
   return (
     <div className='bg-black text-yellow board'>

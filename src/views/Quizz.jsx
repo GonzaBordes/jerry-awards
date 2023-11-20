@@ -66,28 +66,28 @@ const Quizz = () => {
               transition={{ duration: 0.5 }}
               >
                 <div className="container">
-                  <h3 className="text-yellow bold uppercase text-center mb-3">Respondé la trivia en el menor tiempo posible y ganá</h3>
-                  <span className="block text-yellow uppercase text-center mb-3 font-light">Primer premio smart tv philco led 43" full hd</span>
+                  <h3 className="text-yellow bold uppercase text-center mb-2">Respondé la trivia en el menor tiempo posible y ganá</h3>
+                  <span className="block text-yellow uppercase text-center mb-2 font-light">Primer premio smart tv philco led 43" full hd</span>
 
-                  <div className="form-wrapper pt-4  border-t-[.5px] border-yellow">
-                    <form className="grid gap-3">
+                  <div className="form-wrapper pt-3  border-t-[.5px] border-yellow">
+                    <form className="grid gap-2">
 
                       <div className="input-box">
                         <label htmlFor="nombre-apellido" className="text-yellow block text-center uppercase font-light text-[.9rem]">Nombre y apellido</label>
-                        <input type="text" name="nombre" onChange={handleChange} id="nombre-apellido" className="w-full py-[.5rem] px-2 mt-3 rounded-lg border-yellow border-2 bg-white" />
+                        <input type="text" name="nombre" onChange={handleChange} id="nombre-apellido" className="w-full py-[.5rem] px-2 mt-2 rounded-lg border-yellow border-2 bg-white" />
                       </div>
                       <div className="input-box">
                         <label htmlFor="email" className="text-yellow block text-center uppercase font-light text-[.9rem] ">Email</label>
-                        <input type="email" name="email" id="email" onChange={handleChange} className="text-[.9rem] w-full py-[.5rem] px-2 mt-3 rounded-lg border-yellow border-2 bg-white" />   
+                        <input type="email" name="email" id="email" onChange={handleChange} className="text-[.9rem] w-full py-[.5rem] px-2 mt-2 rounded-lg border-yellow border-2 bg-white" />   
                       </div>
                       <div className="flex gap-6">
                         <div className="input-box">
                           <label htmlFor="dni" className="text-yellow block text-center uppercase font-light text-[.9rem]">Dni</label>
-                          <input type="text" name="dni" id="dni" onChange={handleChange} className="text-[.9rem] w-full py-[.5rem] px-2 mt-3 rounded-lg border-yellow border-2 bg-white" />   
+                          <input type="text" name="dni" id="dni" onChange={handleChange} className="text-[.9rem] w-full py-[.5rem] px-2 mt-2 rounded-lg border-yellow border-2 bg-white" />   
                         </div>
                         <div className="input-box">
                           <label htmlFor="table" className="text-yellow block text-center uppercase font-light text-[.9rem]">Mesa</label>
-                          <input type="number" id="mesa" name="mesa" onChange={handleChange} className="text-[.9rem] w-full py-[.5rem] px-2 mt-3 rounded-lg border-yellow border-2 bg-white" />   
+                          <input type="number" id="mesa" name="mesa" onChange={handleChange} className="text-[.9rem] w-full py-[.5rem] px-2 mt-2 rounded-lg border-yellow border-2 bg-white" />   
                         </div>                
                       </div>
                       <div className="flex justify-center pt-2 pb-1">
@@ -117,7 +117,7 @@ const Quizz = () => {
                                   className="text-yellow text-[.9rem] text-center">
                                     {error}
                                 </motion.div>}
-                      <button onClick={handleRegister} className="text-yellow border-2 border-yellow py-3 w-full font-bold text-[1.1rem] uppercase rounded-xl mt-2">Registrarme y jugar</button>
+                      <button onClick={handleRegister} className="text-yellow border-2 border-yellow py-3 w-full font-bold text-[1.1rem] uppercase rounded-xl mt-1">Registrarme y jugar</button>
                     </form>
 
                   

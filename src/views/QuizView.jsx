@@ -54,8 +54,9 @@ const QuizView = ({userId, userName}) => {
             // ACÁ VA LA LÓGICA PARA MOSTRAR LOS PUNTOS Y HACER EL POST
             axios.post('https://us-central1-kickads-airbyte.cloudfunctions.net/post_jerry_points', quizzData, {
               headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                //'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'mode': 'no-cors'
               },
             })
             .then(response => {

@@ -6,31 +6,33 @@ import imgGlobos from '../assets/img/globos.png';
 import imgLogoWarner from '../assets/img/warner-logo.png';
 import './Board.css'
 import TitleDashboard from '../components/TitleDashboard';
+import axios from "axios"
 
 const Board = () => {
   const [data, setData] = useState([]);
 
-  useEffect(() => {
+  /*useEffect(() => {
     getUsuarios().then((users) => {
       setData(users);
     });
-  }, []);
+  }, []);*/
 
-  /*useEffect(() => {
+  useEffect(() => {
     const fetchData = async () => {
       try{
-        const response = await fetch('https://us-central1-kickads-airbyte.cloudfunctions.net/all')
-        if(!response.ok) {
+        const response = await axios.get('https://us-central1-kickads-airbyte.cloudfunctions.net/all')
+
+        if(!response.data) {
           throw new Error('Error al traer los usuarios')
         }
-        const users = await response.json()
-        setData(users)
+
+        setData(response.data)
       } catch (error) {
-        console.error('Error', error)
+        console.log('Error', error)
       }
     }
     fetchData()
-  }, [])*/
+  }, [])
 
 
   return (

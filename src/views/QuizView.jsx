@@ -3,9 +3,10 @@ import QuestionCard from "../components/QuestionCard"
 import Questions from "../data/QuizzQuestions"
 import './QuizzView.css'
 import {motion, AnimatePresence} from 'framer-motion'
+import axios from "axios"
 
 
-const QuizView = ({userId}) => { 
+const QuizView = ({userId, userName}) => { 
     
     // const [correctAnswers, setCorrectAnswers] = useState(0)
     const [step, setStep] = useState(0)
@@ -51,7 +52,20 @@ const QuizView = ({userId}) => {
         if (step === Questions.length) {
             clearInterval(temporizador);
             // ACÁ VA LA LÓGICA PARA MOSTRAR LOS PUNTOS Y HACER EL POST
-
+            axios.post('https://us-central1-kickads-airbyte.cloudfunctions.net/post_jerry_points', quizzData, {
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+            })
+            .then(response => {
+              console.log('Quizz Data Enviada')
+              console.log(response.data)
+            })
+            .catch(error =>{
+              console.log("Error al enviar los datos")
+              console.log(error)
+            });
           }
 
         return () => clearInterval(temporizador);
@@ -90,7 +104,7 @@ const QuizView = ({userId}) => {
                     animate={{ opacity: 1}}
                     transition={{ duration: 0.5, delay: .5 }}
                     >
-                        <h2 className="text-center text-yellow light text-2xl italic mb-2">Nombre y Apellido</h2>
+                        <h2 className="text-center text-yellow light text-2xl italic mb-2">{userName}</h2>
                         <div className="grid place-content-center text-center">
                             <span className="bold text-md text-yellow">Respondiste</span>
                             <span className="block overflow-hidden">

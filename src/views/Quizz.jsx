@@ -13,63 +13,42 @@ const Quizz = () => {
   const [loggedUser, setLoggedUser] = useState(false)
   const [userData, setUserData] = useState({ nombre: '', dni: '', mesa: '', email: '' });
   const [userId, setuserId] = useState('')
+  const [checkboxChecked, setCheckboxChecked] = useState(false)
+  const [error, setError] = useState(false)
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserData((prevData) => ({ ...prevData, [name]: value }));
   };  
-  const [loggedUser, setLoggedUser] = useState(false)
-  const [checkboxChecked, setCheckboxChecked] = useState(false)
-  const [error, setError] = useState(false)
-
+  
   const handleRegister = (e) => {
     e.preventDefault();
 
     console.log(JSON.stringify(userData))
 
-    // Realizar la solicitud POST a la API con Axios
-    axios.post('https://us-central1-kickads-airbyte.cloudfunctions.net/create_jerry_users', userData, {
-
     if (!checkboxChecked) {
       setError("Debes aceptar los términos y condiciones.");
       return;
     }
-  
-    // Obtener los valores del formulario
-    const name = document.getElementById('nombre-apellido').value;
-    const email = document.getElementById('email').value;
-    const dni = document.getElementById('dni').value;
-    const mesa = document.getElementById('table').value;
-  
-    // Crear el objeto de datos a enviar
-    const userData = {
-      name,
-      email,
-      dni,
-      mesa,
-    };
 
-    console.log(userData)
-  
-    // Realizar la solicitud POST a la API
-    fetch('https://us-central1-kickads-airbyte.cloudfunctions.net/create_user', {
-      method: 'POST',
-      mode: 'no-cors',
+    // Realizar la solicitud POST a la API con Axios
+    axios.post('https://us-central1-kickads-airbyte.cloudfunctions.net/create_jerry_users', userData, {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
     })
       .then(response => {
-        console.log('Usuario creado');
-        console.log(response.data);
+        console.log('Usuario creado')
+        console.log(response.data)
         setuserId(response.data)
-        setLoggedUser(true);        
+        setLoggedUser(true);
       })
       .catch(error => {
         console.error('Error de red:', error);
-      });  
-  };
+      });
+    }
 
   const handleTermsClick = () => {
     // Descargar el PDF al hacer clic en el enlace
@@ -88,7 +67,7 @@ const Quizz = () => {
               >
                 <div className="container">
                   <h3 className="text-yellow bold uppercase text-center mb-3">Respondé la trivia en el menor tiempo posible y ganá</h3>
-                  <span className="block text-yellow uppercase text-center mb-3 font-light">Primer premio smart tv philco led 43" full h</span>
+                  <span className="block text-yellow uppercase text-center mb-3 font-light">Primer premio smart tv philco led 43" full hd</span>
 
                   <div className="form-wrapper pt-4  border-t-[.5px] border-yellow">
                     <form className="grid gap-3">
@@ -149,7 +128,7 @@ const Quizz = () => {
                 
             ) : (
               
-              <QuizView userId={userId}/>
+              <QuizView userId={userId} userName={userData.nombre}/>
               
             )}
           </AnimatePresence>                 

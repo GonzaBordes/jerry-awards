@@ -27,9 +27,9 @@ const QuestionCard = ({ question, handleAnswer, step }) => {
         </div>        
         <div className="bg-white h-[100%] py-[4rem]  text-center relative">
             <h2 className="z-50 relative bold">{question.pregunta}</h2>
-            <div class="bg-[#65569a] scale-[1.05] h-full w-full absolute top-0 left-0 rounded-xl z-10 "></div>
-            <div class="border-[1px] border-[yellow] translate-x-3 h-full w-full absolute top-0 left-0 z-30"></div>
-            <div class="bg-[white] h-[97%] w-full absolute top-0 left-0 z-20 rotate-[-3deg] "></div>
+            <div className="bg-[#65569a] scale-[1.05] h-full w-full absolute top-0 left-0 rounded-xl z-10 "></div>
+            <div className="border-[1px] border-[yellow] translate-x-3 h-full w-full absolute top-0 left-0 z-30"></div>
+            <div className="bg-[white] h-[97%] w-full absolute top-0 left-0 z-20 rotate-[-3deg] "></div>
         </div>        
         <div className="grid gap-3 mt-5">
             {question.opciones.map((option, index) => (

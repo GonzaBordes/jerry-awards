@@ -5,43 +5,59 @@ import './QuizzView.css'
 import {motion, AnimatePresence} from 'framer-motion'
 
 
-const QuizView = () => { 
-
-    const [correctAnswers, setCorrectAnswers] = useState(0)
+const QuizView = ({userId}) => { 
+    
+    // const [correctAnswers, setCorrectAnswers] = useState(0)
     const [step, setStep] = useState(0)
     const [timer, setTimer] = useState(15);
-    const [totalTime, setTotalTime] = useState(0);
+    // const [totalTime, setTotalTime] = useState(0);
+    const [quizzData,setQuizzData] = useState({
+        user_id: userId,
+        answers_ok: 0,
+        total_time: 0
+    })
+
+    console.log(quizzData)
 
 
     const handleAnswer = (isCorrect) => {
         console.log(`Respuesta seleccionada: ${isCorrect ? "Correcta" : "Incorrecta"}`);
         if (isCorrect) {
-            setCorrectAnswers((prevCorrectAnswers) => prevCorrectAnswers + 1)
+          setQuizzData((prevQuizzData) => ({
+            ...prevQuizzData,
+            answers_ok: prevQuizzData.answers_ok + 1
+          }));
         }
-        setStep((prevStep) => prevStep + 1)
-        setTimer(15)
-    }
-
-    useEffect(() => {
+        setStep((prevStep) => prevStep + 1);
+        setTimer(15);
+      };
+    
+      useEffect(() => {
         // Configura el temporizador para cada pregunta
         const temporizador = setInterval(() => {
-        if (timer > 0) {
-          setTimer(timer - 1);
-          setTotalTime(totalTime + 1); // Incrementa el tiempo total
-        } else {
-          // Cuando se llega a 0, pasa a la siguiente pregunta
-          setStep(step + 1);
-          setTimer(15); // Reinicia el temporizador para la siguiente pregunta
-        }
-      }, 1000);
-      
-      if (step === Questions.length) {
-        clearInterval(temporizador);
-      }
+          if (timer > 0) {
+            setTimer((prevTimer) => prevTimer - 1);
+            setQuizzData((prevQuizzData) => ({
+              ...prevQuizzData,
+              total_time: prevQuizzData.total_time + 1
+            }));
+          } else {
+            // Cuando se llega a 0, pasa a la siguiente pregunta
+            setStep((prevStep) => prevStep + 1);
+            setTimer(15); // Reinicia el temporizador para la siguiente pregunta
+          }
+        }, 1000);
+
+        if (step === Questions.length) {
+            clearInterval(temporizador);
+            // ACÁ VA LA LÓGICA PARA MOSTRAR LOS PUNTOS Y HACER EL POST
+
+          }
 
         return () => clearInterval(temporizador);
-      }, [timer,step, totalTime]);
+      }, [timer,step, Questions.length]);
 
+    // Esta variable almacena el string que se va mostrar en el contador, si el numero es menor a 10 se le agrega un cero, sino, no se agrega   
       let displayeTimer = timer < 10 ? `0${timer}` : timer;
       
     return (
@@ -84,12 +100,12 @@ const QuizView = () => {
                                 animate={{ y:'0%'}}
                                 transition={{ duration: 0.5, delay: .7 }}
                                 >
-                                    {correctAnswers}
+                                    {quizzData.answers_ok}
                                 </motion.span>
                             </span>                             
                             <span className="block text-yellow">preguntas correctas</span>
                         </div>
-                        <span className="block text-[white] text-center">Tiempo total empleado: {totalTime} segundos</span>
+                        <span className="block text-[white] text-center">Tiempo total empleado: {quizzData.total_time} segundos</span>
                     </motion.div>
                 )}
             </AnimatePresence>            

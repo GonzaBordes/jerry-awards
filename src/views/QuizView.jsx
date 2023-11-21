@@ -61,7 +61,7 @@ const QuizView = ({userId, userName}) => {
             })
             .then(response => {
               console.log('Quizz Data Enviada')
-              console.log(response.data)
+              console.log(response.config.data)
             })
             .catch(error =>{
               console.log("Error al enviar los datos")

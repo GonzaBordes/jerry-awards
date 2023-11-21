@@ -30,7 +30,7 @@ const GetWinner = () => {
 
     const fetchData = async () => {
         try{
-            const apiUrl = 'https://us-central1-kickads-airbyte.cloudfunctions.net/get_winner';
+            const apiUrl = 'https://us-central1-kickads-airbyte.cloudfunctions.net/get_jerry_winner';
 
             axios.get(apiUrl)
               .then(response => {
